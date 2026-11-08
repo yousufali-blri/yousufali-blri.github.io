@@ -369,3 +369,18 @@ h3, .card h3, .timeline h3 { font-size: 1.22rem; font-weight: 700; }
   .g-tall { grid-row: auto; }
   .g-tall .g-open img { aspect-ratio: 4/5; }
 }
+
+/* Gallery: small thumbnails side by side (click to enlarge) */
+.gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 260px)); grid-template-rows: none; gap: 14px; justify-content: start; }
+.g-tall { grid-row: auto; }
+.g-item { background: transparent; box-shadow: none; border-radius: 10px; }
+.g-open { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(15,61,51,.18); }
+.g-open img, .g-tall .g-open img, .g-item:not(.g-tall) .g-open img { aspect-ratio: 4/3; height: auto; object-position: center 25%; }
+.g-item figcaption { position: static; padding: 8px 2px 0; background: none; color: var(--ink-2); font-size: .78rem; line-height: 1.4; pointer-events: auto; }
+.g-item figcaption::before { display: none; }
+@media (max-width: 700px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .g-tall .g-open img { aspect-ratio: 4/3; }
+}
+.gallery .g-open { height: auto; }
+.gallery .g-item { overflow: visible; }
