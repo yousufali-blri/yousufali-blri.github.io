@@ -384,3 +384,4 @@ h3, .card h3, .timeline h3 { font-size: 1.22rem; font-weight: 700; }
 }
 .gallery .g-open { height: auto; }
 .gallery .g-item { overflow: visible; }
+.gallery .g-tall .g-open img { object-position: center 4%; }
