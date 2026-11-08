@@ -119,3 +119,17 @@ const spy = new IntersectionObserver(entries => entries.forEach(en => {
 navMap.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Gallery lightbox
+const lb = document.getElementById("lightbox");
+if (lb && lb.showModal) {
+  const lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
+  document.querySelectorAll(".g-open").forEach(btn => btn.addEventListener("click", () => {
+    const img = btn.querySelector("img");
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbCap.textContent = btn.parentElement.querySelector("figcaption")?.textContent || "";
+    lb.showModal();
+  }));
+  lb.querySelector(".lb-close").addEventListener("click", () => lb.close());
+  lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+}
